@@ -1,0 +1,41 @@
+footer {
+    background-color: #224a9b;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    align-items: center;
+}
+
+footer>.compra-segura {
+    display: flex;
+    flex-direction: column;
+}
+
+.compra-segura>a {
+    text-decoration: none;
+    color: white;
+}
+
+footer>.contato {
+    display: flex;
+    flex-direction: column;
+}
+
+footer>.redes-sociais {
+    display: flex;
+    flex-direction: column;
+}
+
+footer>img {
+    width: 75px;
+}
+
+span>a>i {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+
+span>a {
+    text-decoration: none;
+}
