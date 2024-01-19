@@ -59,14 +59,19 @@ export default function Header() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="dropdown-item dropdown-link" href="/reserva">
-                                        Reservas
+                                    <Link className="dropdown-item dropdown-link" href="/contrato">
+                                        Contratos
                                     </Link>
                                 </li>
 
                                 <li>
                                     <Link className="dropdown-item dropdown-link" href="/contato">
                                         Contato
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link className="dropdown-item dropdown-link" href="/fale-conosco">
+                                        Fale Conosco
                                     </Link>
                                 </li>
                             </ul>

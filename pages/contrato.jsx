@@ -1,14 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import { useServico } from '@/components/hooks/useServico';
+import { useContrato } from '@/components/hooks/useContrato';
 import { useEffect } from 'react';
+import moment from 'moment';
 
-const Servico = () => {
+const Contrato = () => {
 
-  const { servicos, listarServicos, deleteServico } = useServico();
+  const { contratos, listarContratos, deleteContrato } = useContrato();
 
   useEffect(() => {
-    listarServicos()
+    listarContratos()
   }, []);
 
   return (
@@ -28,7 +29,7 @@ const Servico = () => {
         />
 
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
-        <title>Destino Certo - Serviços</title>
+        <title>Destino Certo - Contratos</title>
       </Head>
 
       <main className="container mb-2 mt-2">
@@ -41,7 +42,7 @@ const Servico = () => {
             gap: 5
           }}
         >
-          <i style={{ fontSize: 30 }} className="bi bi-tools" />
+          <i style={{ fontSize: 30 }} className="bi bi-file-earmark-text" />
           <div
             className="container"
             style={{
@@ -50,7 +51,7 @@ const Servico = () => {
               justifyContent: "space-between"
             }}
           >
-            <h1>Lista de Serviços</h1>
+            <h1>Lista de Contratos</h1>
             <Link href="/add-client" className="btn btn-primary">
               Cadastrar
             </Link>
@@ -64,23 +65,25 @@ const Servico = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Serviço</th>
-                  <th>Descrição</th>
+                  <th>Endereço</th>
+                  <th>Data/Hora</th>
                   <th>UserId</th>
+                  <th>ServiçoId</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {servicos.map(({ id, nome, descricao, usuarioId }) => (
+                {contratos.map(({ id, endereco, dataHora, usuarioId, servicoId }) => (
                   <tr key={id}>
                     <td>{id}</td>
-                    <td>{nome}</td>
-                    <td>{descricao}</td>
+                    <td>{endereco}</td>
+                    <td>{moment(dataHora).format('DD/MM/yyyy')}</td>
                     <td>{usuarioId}</td>
+                    <td>{servicoId}</td>
 
                     <td>
                       <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
-                      <button onClick={() => deleteServico(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
+                      <button onClick={() => deleteContrato(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>
                 ))}
@@ -94,4 +97,4 @@ const Servico = () => {
   );
 };
 
-export default Servico;
+export default Contrato;
