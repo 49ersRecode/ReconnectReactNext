@@ -80,7 +80,7 @@ const FaleConosco = () => {
 
                     <td>
                       <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
-                      <button onClick={() => deleteServico(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
+                      <button onClick={() => deleteMensagem(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>
                 ))}
