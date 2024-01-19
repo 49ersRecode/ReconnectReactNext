@@ -70,7 +70,7 @@ export default function Header() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="dropdown-item dropdown-link" href="/fale-conosco">
+                                    <Link className="dropdown-item dropdown-link" href="/faleConosco">
                                         Fale Conosco
                                     </Link>
                                 </li>

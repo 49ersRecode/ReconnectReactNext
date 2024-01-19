@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import { useUsuario } from '@/components/hooks/useUsuario'; 
+import { useUsuario } from '@/hooks'; 
 import { useEffect } from 'react';
 import moment from 'moment'
 

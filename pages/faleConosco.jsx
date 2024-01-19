@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import { useContato } from '@/hooks/useContato'; 
+import { useFaleConosco } from '@/hooks/useFaleConosco'; 
 import { useEffect } from 'react';
 
-const Contato = () => {
+const FaleConosco = () => {
 
-  const { contatos, listarContatos, deleteContato } = useContato();
+  const { mensagens, listarMensagens, deleteMensagem } = useFaleConosco();
 
   useEffect(() => {
-    listarContatos()
+    listarMensagens()
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const Contato = () => {
             gap: 5
           }}
         >
-          <i style={{ fontSize: 30 }} className="bi bi-envelope" />
+          <i style={{ fontSize: 30 }} className="bi bi-tools" />
           <div
             className="container"
             style={{
@@ -50,7 +50,7 @@ const Contato = () => {
               justifyContent: "space-between"
             }}
           >
-            <h1>Lista de Contatos</h1>
+            <h1>Lista de Mensagens</h1>
             <Link href="/add-client" className="btn btn-primary">
               Cadastrar
             </Link>
@@ -64,23 +64,23 @@ const Contato = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>ServiçoId</th>
+                  <th>Serviço</th>
+                  <th>Descrição</th>
+                  <th>UserId</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {contatos.map(({ id, nome, email, servicoId }) => (
+                {mensagens.map(({ id, nome, descricao, usuarioId }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{nome}</td>
-                    <td>{email}</td>
-                    <td>{servicoId}</td>
+                    <td>{descricao}</td>
+                    <td>{usuarioId}</td>
 
                     <td>
                       <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
-                      <button onClick={() => deleteContato(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
+                      <button onClick={() => deleteServico(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>
                 ))}
@@ -94,4 +94,4 @@ const Contato = () => {
   );
 };
 
-export default Contato;
+export default FaleConosco;

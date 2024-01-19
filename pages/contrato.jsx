@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import { useContrato } from '@/components/hooks/useContrato';
+import { useContrato } from '@/hooks/useContrato';
 import { useEffect } from 'react';
 import moment from 'moment';
 

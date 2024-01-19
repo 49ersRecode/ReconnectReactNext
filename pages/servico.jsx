@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import { useServico } from '@/components/hooks/useServico';
+import { useServico } from '@/hooks/useServico'; 
 import { useEffect } from 'react';
 
 const Servico = () => {
