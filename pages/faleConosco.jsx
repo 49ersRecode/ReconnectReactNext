@@ -51,9 +51,9 @@ const FaleConosco = () => {
             }}
           >
             <h1>Lista de Mensagens</h1>
-            <Link href="/add-client" className="btn btn-primary">
+            {/* <Link href="/add-client" className="btn btn-primary">
               Cadastrar
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -64,22 +64,21 @@ const FaleConosco = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Serviço</th>
-                  <th>Descrição</th>
-                  <th>UserId</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Mensagem</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {mensagens.map(({ id, nome, descricao, usuarioId }) => (
+                {mensagens.map(({ id, nome, email, mensagem }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{nome}</td>
-                    <td>{descricao}</td>
-                    <td>{usuarioId}</td>
+                    <td>{email}</td>
+                    <td>{mensagem}</td>
 
                     <td>
-                      <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
                       <button onClick={() => deleteMensagem(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>

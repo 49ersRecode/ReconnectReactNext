@@ -1,16 +1,38 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useUsuario } from './useUsuario';
 
 export const useServico = () => {
+    const {usuarios, listarUsuarios} = useUsuario()
+
     const router = useRouter();
     const URL = "https://localhost:7092/api/Servico"
-    const [servico, setServico] = useState({ id: 0, nome: "", descricao: "", usuarioId: "" });
+
+    const [usuario, setUsuario] = useState({id: {...usuarios[0]}.id});
+
+    const [servico, setServico] = useState({ id: 0, usuario: {...usuario}, nome: "", descricao: "" });
     const [servicos, setServicos] = useState([]);
+
+    useEffect(() => {
+        listarUsuarios()
+    }, [])
+
+    useEffect(() => {
+        servico.usuario = usuarios[0]
+    }, [usuarios])
+
+    useEffect(() => {
+        servico.usuario = usuario
+    }, [usuario])
 
     const handleInputChange = (e) => {
         setServico({ ...servico, [e.target.name]: e.target.value });
     };
+
+    const handleInputChangeUsuario = (e) => {
+        setUsuario({id: Number.parseInt(e.target.value)})
+    }
 
     const listarServicos = () => {
             axios
@@ -19,7 +41,7 @@ export const useServico = () => {
                     setServicos(response.data);
                 })
                 .catch((error) => {
-                    console.error("Erro ao buscar a lista de servicos: ", error);
+                    console.error("Erro ao buscar a lista de serviços: ", error);
                 });
         };
 
@@ -69,6 +91,8 @@ export const useServico = () => {
       };
 
     return {
+        usuario,
+        handleInputChangeUsuario,
         servico,
         servicos,
         handleInputChange,

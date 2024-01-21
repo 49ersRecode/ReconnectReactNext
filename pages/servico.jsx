@@ -51,9 +51,9 @@ const Servico = () => {
             }}
           >
             <h1>Lista de Serviços</h1>
-            <Link href="/add-client" className="btn btn-primary">
+            {/* <Link href="/add-client" className="btn btn-primary">
               Cadastrar
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -66,20 +66,20 @@ const Servico = () => {
                   <th>Id</th>
                   <th>Serviço</th>
                   <th>Descrição</th>
-                  <th>UserId</th>
+                  <th>Prestador</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {servicos.map(({ id, nome, descricao, usuarioId }) => (
+                {servicos.map(({ id, nome, descricao, usuario }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{nome}</td>
                     <td>{descricao}</td>
-                    <td>{usuarioId}</td>
+                    <td>{usuario.nome}</td>
 
                     <td>
-                      <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
+                      {/* <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link> */}
                       <button onClick={() => deleteServico(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>

@@ -51,9 +51,9 @@ const Contato = () => {
             }}
           >
             <h1>Lista de Contatos</h1>
-            <Link href="/add-client" className="btn btn-primary">
+            {/* <Link href="/add-client" className="btn btn-primary">
               Cadastrar
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -66,20 +66,20 @@ const Contato = () => {
                   <th>Id</th>
                   <th>Nome</th>
                   <th>E-mail</th>
-                  <th>ServiçoId</th>
+                  <th>Serviço</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {contatos.map(({ id, nome, email, servicoId }) => (
+                {contatos.map(({ id, nome, email, servico }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{nome}</td>
                     <td>{email}</td>
-                    <td>{servicoId}</td>
+                    <td>{servico.nome}</td>
 
                     <td>
-                      <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
+                      {/* <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link> */}
                       <button onClick={() => deleteContato(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>

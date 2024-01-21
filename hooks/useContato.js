@@ -1,16 +1,38 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useServico } from './useServico';
 
 export const useContato = () => {
+    const {servicos, listarServicos} = useServico()
+
     const router = useRouter();
     const URL = "https://localhost:7092/api/Contato"
+
+    const [servico, setServico] = useState({id: {...servicos[0]}.id});
+
     const [contato, setContato] = useState({ id: 0, nome: "", descricao: "", usuarioId: "" });
     const [contatos, setContatos] = useState([]);
+
+    useEffect(() => {
+        listarServicos()
+    }, [])
+
+    useEffect(() => {
+        contato.servico = servicos[0]
+    }, [servicos])
+
+    useEffect(() => {
+        contato.servico = servico
+    }, [servico])
 
     const handleInputChange = (e) => {
         setContato({ ...contato, [e.target.name]: e.target.value });
     };
+
+    const handleInputChangeServico = (e) => {
+        setServico({id: Number.parseInt(e.target.value)})
+    }
 
     const listarContatos = () => {
             axios
@@ -69,6 +91,9 @@ export const useContato = () => {
       };
 
     return {
+        servico,
+        handleInputChangeServico,
+
         contato,
         contatos,
         handleInputChange,

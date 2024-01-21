@@ -52,9 +52,9 @@ const Usuario = () => {
             }}
           >
             <h1>Lista de Usuários</h1>
-            <Link href="/add-client" className="btn btn-primary">
+            {/* <Link href="/add-client" className="btn btn-primary">
               Cadastrar
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -70,21 +70,22 @@ const Usuario = () => {
                   <th>CPF</th>
                   <th>Data Nascimento</th>
                   <th>Telefone</th>
+                  <th>Profissão</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {usuarios.map(({ id, nome, email, cpf, dataNascimento, telefone }) => (
+                {usuarios.map(({ id, nome, email, cpf, dataNascimento, telefone, profissao }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{nome}</td>
                     <td>{email}</td>
                     <td>{cpf}</td>
                     <td>{moment(dataNascimento).format('DD/MM/yyy')}</td>
-
                     <td>{telefone}</td>
+                    <td>{profissao}</td>
                     <td>
-                      <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
+                      {/* <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link> */}
                       <button onClick={() => deleteUsuario(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export const useFaleConosco = () => {
     const router = useRouter();
     const URL = "https://localhost:7092/api/FaleConosco"
-    const [mensagem, setMensagem] = useState({ id: 0, nome: "", descricao: "", usuarioId: "" });
+    const [mensagem, setMensagem] = useState({ id: 0, nome: "", email: "", mensagem: "" });
     const [mensagens, setMensagens] = useState([]);
 
     const handleInputChange = (e) => {

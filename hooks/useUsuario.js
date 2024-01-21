@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export const useUsuario = () => {
     const router = useRouter();
     const URL = "https://localhost:7092/api/Usuario"
-    const [usuario, setUsuario] = useState({ id: 0, nome: "", email: "", cpf: "", dataNascimento: "", telefone: "" });
+    const [usuario, setUsuario] = useState({ id: 0, nome: "", email: "", cpf: "", dataNascimento: "", telefone: "", profissao: "", foto: "", bio: "" });
     const [usuarios, setUsuarios] = useState([]);
 
     const handleInputChange = (e) => {

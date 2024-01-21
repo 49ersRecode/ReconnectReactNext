@@ -1,16 +1,50 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useServico } from './useServico';
+import { useUsuario } from './useUsuario';
 
 export const useContrato = () => {
-    const router = useRouter();
+
+    const {usuarios, listarUsuarios} = useUsuario()
+    const {servicos, listarServicos} = useServico()
+
     const URL = "https://localhost:7092/api/Contrato"
-    const [contrato, setContrato] = useState({ id: 0, endereco: "", dataHora: "", usuarioId:"", servicoId: "" });
+    const router = useRouter();
+
+    const [usuario, setUsuario] = useState({id: {...usuarios[0]}.id});
+    const [servico, setServico] = useState({id: {...servicos[0]}.id});
+
+    const [contrato, setContrato] = useState({ id: 0, usuario: {...usuario}, servico: {...servico}, endereco: "", dataHora: "" });
+
     const [contratos, setContratos] = useState([]);
+
+    useEffect(() => {
+        listarUsuarios()
+        listarServicos()
+    }, [])
+
+    useEffect(() => {
+        contrato.usuario = usuarios[0]
+        contrato.servico = servicos[0]
+    }, [usuarios, servicos])
+
+    useEffect(() => {
+        contrato.usuario = usuario
+        contrato.servico = servico
+    }, [usuario, servico])
 
     const handleInputChange = (e) => {
         setContrato({ ...contrato, [e.target.name]: e.target.value });
     };
+
+    const handleInputChangeUsuario = (e) => {
+        setUsuario({id: Number.parseInt(e.target.value)})
+    }
+
+    const handleInputChangeServico = (e) => {
+        setServico({id: Number.parseInt(e.target.value)})
+    }
 
     const listarContratos = () => {
             axios
@@ -69,6 +103,11 @@ export const useContrato = () => {
       };
 
     return {
+        usuario,
+        handleInputChangeUsuario,
+        servico,
+        handleInputChangeServico,
+
         contrato,
         contratos,
         handleInputChange,

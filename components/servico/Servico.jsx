@@ -20,7 +20,7 @@ export default function Servico() {
                         />
                         <h2 className="fw-normal">Limpeza</h2>
                         <p>
-                            <a className="btn btn-primary" href="profissionais.html">
+                            <a className="btn btn-primary" href="">
                                 Listar profissionais »
                             </a>
                         </p>
@@ -36,7 +36,7 @@ export default function Servico() {
                         />
                         <h2 className="fw-normal">Reforma</h2>
                         <p>
-                            <a className="btn btn-primary" href="profissionais.html">
+                            <a className="btn btn-primary" href="">
                                 Listar profissionais »
                             </a>
                         </p>
@@ -52,7 +52,7 @@ export default function Servico() {
                         />
                         <h2 className="fw-normal">Ensino</h2>
                         <p>
-                            <a className="btn btn-primary" href="profissionais.html">
+                            <a className="btn btn-primary" href="">
                                 Listar profissionais »
                             </a>
                         </p>
@@ -68,7 +68,7 @@ export default function Servico() {
                         />
                         <h2 className="fw-normal">Mecânico</h2>
                         <p>
-                            <a className="btn btn-primary" href="profissionais.html">
+                            <a className="btn btn-primary" href="">
                                 Listar profissionais »
                             </a>
                         </p>

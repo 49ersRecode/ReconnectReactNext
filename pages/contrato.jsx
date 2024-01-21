@@ -52,9 +52,9 @@ const Contrato = () => {
             }}
           >
             <h1>Lista de Contratos</h1>
-            <Link href="/add-client" className="btn btn-primary">
+            {/* <Link href="/add-client" className="btn btn-primary">
               Cadastrar
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -67,22 +67,22 @@ const Contrato = () => {
                   <th>Id</th>
                   <th>Endereço</th>
                   <th>Data/Hora</th>
-                  <th>UserId</th>
-                  <th>ServiçoId</th>
+                  <th>Prestador</th>
+                  <th>Serviço</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                {contratos.map(({ id, endereco, dataHora, usuarioId, servicoId }) => (
+                {contratos.map(({ id, endereco, dataHora, usuario, servico }) => (
                   <tr key={id}>
                     <td>{id}</td>
                     <td>{endereco}</td>
-                    <td>{moment(dataHora).format('DD/MM/yyyy')}</td>
-                    <td>{usuarioId}</td>
-                    <td>{servicoId}</td>
+                    <td>{new Date(dataHora).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</td>
+                    <td>{usuario.nome}</td>
+                    <td>{servico.nome}</td>
 
                     <td>
-                      <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>
+                      {/* <Link href={`/update-client/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link> */}
                       <button onClick={() => deleteContrato(id)} className="btn btn-danger btn-edit m-1">Excluir</button>
                     </td>
                   </tr>

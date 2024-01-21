@@ -5,6 +5,9 @@ import '@/styles/header.css'
 import '@/styles/footer.css'
 import '@/styles/carousel.css'
 import '@/styles/profissional.css'
+import '@/styles/mediaquery.css'
+import '@/styles/perfil.css'
+import '@/styles/perfilmediaquery.css'
 
 export default function App({ Component, pageProps }) {
   return (
